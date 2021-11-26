@@ -148,23 +148,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   // ... LAYER: Qwerty turning Programmer Dvorak ...
   // ,-----------------------------------------------------------------------------------.
-  // | Super|   Q  |   W  |   E  |   R  |   T  |   Y  |   U  |   I  |   O  |   P  | Bksp |
+  // | Super|   Q  |   W  |   E  |   R  |   T  |   Y  |   U  |   I  |   O  |   P  |   [  |
   // -------|------+------+------+------+------+------+------+------+------+-------------|
-  // | Ctrl |   A  |   S  |   D  |   F  |   G  |   H  |   J  |   K  |   L  |   ;  | Enter|
+  // | Ctrl |   A  |   S  |   D  |   F  |   G  |   H  |   J  |   K  |   L  |   ;  |   '  |
   // -------|------+------+------+------+------+------+------+------+------+-------------|
   // |  Alt |   Z  |   X  |   C  |   V  |   B  |   N  |   M  |   ,  |   .  |   /  | AltGr|
   // |------+------+------+------+------+------+------+------+------+------+------+------|
   // |                           |Orange| Blue | Space| Shift|                           |
   // `-----------------------------------------------------------------------------------'
 
-  // [_QWERTY] = {
-  //   {PD_SPR,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC},
-  //   {KC_LCTL, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_ENT },
-  //   {KC_LALT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, PD_ALGR},
-  //   {_______, _______, _______, _______, ORANGE,  BLUE,    KC_SPC,  KC_LSFT, _______, _______, _______, _______},
-  // },
+  [_QWERTY] = {
+    {PD_SPR,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_LBRC},
+    {KC_LCTL, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT},
+    {KC_LALT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, PD_ALGR},
+    {_______, _______, _______, _______, ORANGE,  BLUE,    KC_SPC,  KC_LSFT, _______, _______, _______, _______},
+  },
 
-  // ... LAYER: Programmer Dvorak ...
+  // ... LAYER DVP: Programmer Dvorak ...
   // ,-----------------------------------------------------------------------------------.
   // | Super|   ;  |   ,  |   .  |   P  |   Y  |   F  |   G  |   C  |   R  |   L  |   /  |
   // -------|------+------+------+------+------+------+------+------+------+-------------|
@@ -175,14 +175,32 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // |                           |Orange| Blue | Space| Shift|                           |
   // `-----------------------------------------------------------------------------------'
 
-  [_QWERTY] = {
-    {PD_SPR,  KC_SCLN, KC_COMM, KC_DOT,  KC_P,    KC_Y,    KC_F,    KC_G,    KC_C,    KC_R,    KC_L,    KC_SLSH},
-    {KC_LCTL, KC_A,    KC_O,    KC_E,    KC_U,    KC_I,    KC_D,    KC_H,    KC_T,    KC_N,    KC_S,    KC_MINS},
-    {KC_LALT, KC_QUOT, KC_Q,    KC_J,    KC_K,    KC_X,    KC_B,    KC_M,    KC_W,    KC_V,    KC_Z,    PD_ALGR},
-    {_______, _______, _______, _______, ORANGE,  BLUE,    KC_SPC,  KC_LSFT, _______, _______, _______, _______},
-  },
+  /* [_QWERTY] = { */
+  /*   {PD_SPR,  KC_SCLN, KC_COMM, KC_DOT,  KC_P,    KC_Y,    KC_F,    KC_G,    KC_C,    KC_R,    KC_L,    KC_SLSH}, */
+  /*   {KC_LCTL, KC_A,    KC_O,    KC_E,    KC_U,    KC_I,    KC_D,    KC_H,    KC_T,    KC_N,    KC_S,    KC_MINS}, */
+  /*   {KC_LALT, KC_QUOT, KC_Q,    KC_J,    KC_K,    KC_X,    KC_B,    KC_M,    KC_W,    KC_V,    KC_Z,    PD_ALGR}, */
+  /*   {_______, _______, _______, _______, ORANGE,  BLUE,    KC_SPC,  KC_LSFT, _______, _______, _______, _______}, */
+  /* }, */
 
   // ... LAYER: Blue (Blue) - Extended symbols & functions...
+  // .-----------------------------------------------------------------------------------.
+  // | Super|   1  |   2  |   3  |   4  |   5  |   6  |   7  |   8  |   9  |   0  |   _  |
+  // |-----------------------------------------------------------------------------------|
+  // | Ctrl |   ~  |      |      |      | Enter|   \  |   ]  |      |      |      |   =  |
+  // |-----------------------------------------------------------------------------------|
+  // |  Alt |      |      |      |      |BSpace|  Del |      |      |      |      | AltGr|
+  // |-----------------------------------------------------------------------------------|
+  // |                           |Orange|  f() | Space| Shift|                           |
+  // '-----------------------------------------------------------------------------------'
+
+  [_BLUE] = {
+    {PD_SPR,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_UNDS},
+    {KC_LCTL, KC_TILD, _______, _______, _______, KC_ENT,  KC_BSLS, KC_RBRC, _______, _______, _______, KC_EQL },
+    {KC_LALT, _______, _______, _______, _______, KC_BSPC, KC_DEL,  _______, _______, _______, _______, PD_ALGR},
+    {_______, _______, _______, _______, ORANGE,  ___x___, KC_SPC,  KC_LSFT, _______, _______, _______, _______},
+  },
+
+  // ... LAYER DVP: Blue (Blue) - Extended symbols & functions...
   // .-----------------------------------------------------------------------------------.
   // | Super|   &  |   [  |   {  |   }  |   (  |   =  |   *  |   )  |   +  |   ]  |   !  |
   // |-----------------------------------------------------------------------------------|
@@ -193,12 +211,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // |                           |Orange|  f() | Space| Shift|                           |
   // '-----------------------------------------------------------------------------------'
 
-  [_BLUE] = {
-    {PD_SPR,  PD_AMPR, PD_LBRC, PD_LCBR, PD_RCBR, PD_LPRN, PD_EQL,  PD_ASTR, PD_RPRN, PD_PLUS, PD_RBRC, PD_EXLM},
-    {KC_LCTL, PD_DLR,  _______, _______, _______, KC_ENT,  KC_BSLS, KC_AT,   _______, _______, _______, PD_HASH},
-    {KC_LALT, _______, _______, _______, _______, KC_BSPC, KC_DEL,  _______, _______, _______, _______, PD_ALGR},
-    {_______, _______, _______, _______, ORANGE,  ___x___, KC_SPC,  KC_LSFT, _______, _______, _______, _______},
-  },
+  /* [_BLUE] = { */
+  /*   {PD_SPR,  PD_AMPR, PD_LBRC, PD_LCBR, PD_RCBR, PD_LPRN, PD_EQL,  PD_ASTR, PD_RPRN, PD_PLUS, PD_RBRC, PD_EXLM}, */
+  /*   {KC_LCTL, PD_DLR,  _______, _______, _______, KC_ENT,  KC_BSLS, KC_AT,   _______, _______, _______, PD_HASH}, */
+  /*   {KC_LALT, _______, _______, _______, _______, KC_BSPC, KC_DEL,  _______, _______, _______, _______, PD_ALGR}, */
+  /*   {_______, _______, _______, _______, ORANGE,  ___x___, KC_SPC,  KC_LSFT, _______, _______, _______, _______}, */
+  /* }, */
 
   // ... LAYER: Orange (Orange) - TODO ...
   // .-----------------------------------------------------------------------------------.
