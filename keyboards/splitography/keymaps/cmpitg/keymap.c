@@ -99,25 +99,41 @@ enum splitography_keycodes {
 
 #define ST_BOLT QK_STENO_BOLT
 
-#define COPY    LCTL(KC_C)
-#define CUT     LCTL(KC_X)
-#define PASTE   LCTL(KC_V)
-#define UNDO    LCTL(KC_Z)
-#define TG_NUM  TG(_NUM)
-
 #define PD_SPR  KC_LGUI
 #define PD_ALGR KC_ALGR
 // #define PD_ALGR KC_HYPR
+#define PD_X KC_B
+#define PD_C KC_I
+#define PD_V KC_DOT
+#define PD_Z KC_SLSH
+
+// #define COPY    LCTL(KC_C)
+#define COPY    LALT(PD_C)
+// #define CUT     LCTL(KC_X)
+#define CUT     LALT(PD_X)
+// #define PASTE   LCTL(KC_V)
+#define PASTE   LALT(PD_V)
+// #define UNDO    LCTL(KC_Z)
+#define UNDO    LALT(PD_Z)
+#define SWITCHR LGUI(KC_TAB)
+#define ACTV_KM LCTL(LALT(LGUI(KC_BSLS)))
+// #define OMN_RUN LCTL(KC_1)
+#define OMN_RUN LCTL(PD_AMPR)
+#define TG_NUM  TG(_NUM)
 
 /*
- * Escape       KC_ESC
- * Left-Control KC_LCLT
- * Left-Alt     KC_LALT
- * Left-Shift   KC_LSFT
- * Left-Super   KC_LGUI
- * Hyper        KC_HYPR
- * AltGr        PD_ALGR
- * Capslock     KC_CAPS
+ * Escape        KC_ESC
+ * Left-Control  KC_LCLT
+ * Right-Control KC_RCLT
+ * Left-Alt      KC_LALT
+ * Right-Alt     KC_RALT
+ * Left-Shift    KC_LSFT
+ * Right-Shift   KC_RSFT
+ * Left-Super    KC_LGUI
+ * Right-Super   KC_RGUI
+ * Hyper         KC_HYPR
+ * AltGr         PD_ALGR
+ * Capslock      KC_CAPS
  *
  * PrintScreen    KC_PSCR
  * ScrollLock     KC_SLCK
@@ -245,19 +261,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   // ... LAYER: Green (Blue + Orange) - shortcuts ...
   // .-----------------------------------------------------------------------------------.
-  // | Super|      |      |      |      | Caps |      |      |  Up  |      |      |      |
+  // | Super|OmnRun|      |      |      |Escape|      |      |  Up  |      |      |      |
   // |-----------------------------------------------------------------------------------|
-  // | Ctrl |Escape|      |      |      |      |      | Left | Down | Right|      | Enter|
+  // | Ctrl | Caps |      |      |ActvKM|      |      | Left | Down | Right|      | RCtrl|
   // |-----------------------------------------------------------------------------------|
-  // |  Alt |      |  Cut | Copy | Paste|      |      |      |      |      |      | AltGr|
+  // |  Alt |Switch|  Cut | Copy | Paste|      |      |      |      |      |      | AltGr|
   // |-----------------------------------------------------------------------------------|
   // |                           |  f() |  f() |TxBolt| Shift|                           |
   // '-----------------------------------------------------------------------------------'
 
   [_GREEN] = {
-    {PD_SPR,  _______, _______, _______, _______, KC_CAPS, _______, _______, KC_UP,   _______, _______, _______},
-    {KC_LCTL, KC_ESC,  _______, _______, _______, _______, _______, KC_LEFT, KC_DOWN, KC_RGHT, _______, KC_ENT },
-    {KC_LALT, _______, CUT,     COPY,    PASTE,   _______, _______, _______, _______, _______, _______, PD_ALGR},
+    {PD_SPR,  OMN_RUN, _______, _______, _______, KC_ESC,  _______, _______, KC_UP,   _______, _______, _______},
+    {KC_LCTL, KC_CAPS, _______, _______, ACTV_KM, _______, _______, KC_LEFT, KC_DOWN, KC_RGHT, _______, KC_RCTL},
+    {KC_LALT, SWITCHR, CUT,     COPY,    PASTE,   _______, _______, _______, _______, _______, _______, PD_ALGR},
     {_______, _______, _______, _______, ___x___, ___x___, TXBOLT,  KC_LSFT, _______, _______, _______, _______},
   },
 
