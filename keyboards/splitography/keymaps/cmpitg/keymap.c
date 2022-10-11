@@ -116,9 +116,8 @@ enum splitography_keycodes {
 // #define UNDO    LCTL(KC_Z)
 #define UNDO    LALT(PD_Z)
 #define SWITCHR LGUI(KC_TAB)
-#define ACTV_KM LCTL(LALT(LGUI(KC_BSLS)))
-// #define OMN_RUN LCTL(KC_1)
-#define OMN_RUN LCTL(PD_AMPR)
+#define ACTV_KM LGUI(LCTL(LALT(KC_BSLS)))
+#define OMN_RUN LALT(KC_1)
 #define TG_NUM  TG(_NUM)
 
 /*
