@@ -118,6 +118,7 @@ enum splitography_keycodes {
 #define SWITCHR LGUI(KC_TAB)
 #define ACTV_KM LGUI(LCTL(LALT(KC_BSLS)))
 #define OMN_RUN LALT(KC_1)
+#define DEL_WND LGUI(KC_DEL)
 #define TG_NUM  TG(_NUM)
 
 /*
@@ -264,7 +265,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // |-----------------------------------------------------------------------------------|
   // | Ctrl | Caps |      |      |ActvKM|      |      | Left | Down | Right|      | RCtrl|
   // |-----------------------------------------------------------------------------------|
-  // |  Alt |Switch|  Cut | Copy | Paste|      |      |      |      |      |      | AltGr|
+  // |  Alt |Switch|  Cut | Copy | Paste|DelWnd|      |      |      |      |      | AltGr|
   // |-----------------------------------------------------------------------------------|
   // |                           |  f() |  f() |TxBolt| Shift|                           |
   // '-----------------------------------------------------------------------------------'
@@ -272,7 +273,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_GREEN] = {
     {PD_SPR,  OMN_RUN, _______, _______, _______, KC_ESC,  _______, _______, KC_UP,   _______, _______, _______},
     {KC_LCTL, KC_CAPS, _______, _______, ACTV_KM, _______, _______, KC_LEFT, KC_DOWN, KC_RGHT, _______, KC_RCTL},
-    {KC_LALT, SWITCHR, CUT,     COPY,    PASTE,   _______, _______, _______, _______, _______, _______, PD_ALGR},
+    {KC_LALT, SWITCHR, CUT,     COPY,    PASTE,   DEL_WND, _______, _______, _______, _______, _______, PD_ALGR},
     {_______, _______, _______, _______, ___x___, ___x___, TXBOLT,  KC_LSFT, _______, _______, _______, _______},
   },
 
